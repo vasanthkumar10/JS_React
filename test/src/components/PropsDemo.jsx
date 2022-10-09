@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 // named export
 export function PropsDemo(props) {
-  console.log(props);
+  // console.log(props);
   const [name, setName] = useState("vasanth");
   return (
     <div>

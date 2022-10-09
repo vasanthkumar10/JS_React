@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { PropsDemo } from "./components/PropsDemo";
+import { ObjectDemo } from "./components/ObjectDemo";
 
 const initialCount = 0;
 // functional or hooks
@@ -8,7 +9,8 @@ export function App() {
   const [count, setCount] = useState(initialCount);
 
   const increment = (step) => {
-    if (count < 10) setCount(count + step);
+    setCount((prevCount) => prevCount + step);
+    setCount(count + step);
   };
 
   const decrement = () => {
@@ -24,7 +26,7 @@ export function App() {
       {count < 10 && count > -5 ? (
         <h1>count - {count}</h1>
       ) : (
-        <h1>{count == 10 ? "Max" : "Min"} value reached</h1>
+        <h1>{count === 10 ? "Max" : "Min"} value reached</h1>
       )}
       <PropsDemo
         decrement={decrement}
@@ -47,6 +49,7 @@ export function App() {
       <button onClick={() => increment(1)}>increment</button>
       <button onClick={decrement}>decrement</button>
       <button onClick={reset}>reset</button>
+      {/* <ObjectDemo /> */}
     </div>
   );
 }

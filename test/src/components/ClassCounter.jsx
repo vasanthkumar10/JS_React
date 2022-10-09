@@ -22,6 +22,7 @@ export class ClassCounter extends Component {
   };
 
   handleReset = () => {
+    console.log(this);
     this.setState({
       count: 0,
     });
@@ -33,12 +34,8 @@ export class ClassCounter extends Component {
         <h1 style={{ color: this.props.color }}>
           class count - {this.state.count}
         </h1>
-        <button onClick={() => this.handleIncrement(this.props.step)}>
-          class increment
-        </button>
-        <button onClick={() => this.handleDecrement(this.props.step)}>
-          class decrement
-        </button>
+        <button onClick={() => this.handleIncrement(1)}>class increment</button>
+        <button onClick={() => this.handleDecrement(1)}>class decrement</button>
         <button onClick={this.handleReset}>class Reset</button>
         {this.props.isPresent && <h1>vasanth</h1>}
       </div>
