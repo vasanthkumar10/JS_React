@@ -23,7 +23,7 @@ export function App() {
 
   return (
     <div className="App">
-      {count < 10 && count > -5 ? (
+      {/* {count < 10 && count > -5 ? (
         <h1>count - {count}</h1>
       ) : (
         <h1>{count === 10 ? "Max" : "Min"} value reached</h1>
@@ -48,8 +48,8 @@ export function App() {
       />
       <button onClick={() => increment(1)}>increment</button>
       <button onClick={decrement}>decrement</button>
-      <button onClick={reset}>reset</button>
-      {/* <ObjectDemo /> */}
+      <button onClick={reset}>reset</button> */}
+      <ObjectDemo />
     </div>
   );
 }

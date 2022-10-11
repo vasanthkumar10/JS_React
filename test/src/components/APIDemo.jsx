@@ -8,9 +8,10 @@ export function APIDemo() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/posts`).then((data) => {
-      setPosts([...data.data]);
-      setFilteredPosts([...data.data]);
+    axios.get(`https://jsonplaceholder.typicode.com/posts`).then((response) => {
+      // console.log(response);
+      setPosts([...response.data]);
+      setFilteredPosts([...response.data]);
     });
   }, []);
 
