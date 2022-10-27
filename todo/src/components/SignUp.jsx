@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Button } from "./Button";
 
 import { SuccessPage } from "./SuccessPage";
+import { FormError } from "./FormError";
+
+import { validateName } from "../utils/validations";
 
 export function SignUp() {
   const [name, setName] = useState("");
@@ -16,23 +19,21 @@ export function SignUp() {
   //   functionalities
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name === "") setNameErr(true);
-    else {
-      setNameErr(false);
-      if (password === cfmpwd) {
-        console.table({
-          name,
-          age,
-          email,
-          password,
-          cfmpwd,
-          mobile,
-        });
-        handleReset();
-        setIsSuccess(true);
-      } else {
-        console.log("Password not matching");
-      }
+    setNameErr(false);
+    if (password === cfmpwd) {
+      console.table({
+        name,
+        age,
+        email,
+        password,
+        cfmpwd,
+        mobile,
+      });
+      handleReset();
+      validate();
+      setIsSuccess(true);
+    } else {
+      console.log("Password not matching");
     }
   };
 
@@ -43,6 +44,10 @@ export function SignUp() {
     setPwd("");
     setCfmpwd("");
     setMobile("");
+  };
+
+  const validate = () => {
+    if (!validateName(name)) return "name";
   };
 
   // UI
@@ -58,9 +63,7 @@ export function SignUp() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {nameErr && (
-          <p style={{ color: "red", margin: 0 }}>Please enter the valid name</p>
-        )}
+        <FormError property="name" isVisible={validate()} />
       </div>
       <div>
         <label htmlFor="age">Enter the age: </label>
