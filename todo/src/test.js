@@ -1,7 +1,5 @@
-function findSum(n1, n2) {
-  return Math.random(n1);
-}
+const arr = [1, 2, 3, 4];
 
-let sum = findSum;
+const sum = arr.reduce((acc, curr) => acc + curr, 10);
 
-console.log(sum(3, 2));
+console.log(sum);
