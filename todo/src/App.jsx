@@ -5,6 +5,7 @@
 // import { UseMemoDemo } from "./components/UseMemoDemo";
 // import { FragmentDemo } from "./components/FragmentDemo";
 // import { ComponentA } from "./components/ComponentA";
+import { PI } from "./components/constant";
 import { UseReducerDemo } from "./components/UseReducerDemo";
 
 export function App() {
@@ -14,3 +15,5 @@ export function App() {
     </div>
   );
 }
+
+PI;

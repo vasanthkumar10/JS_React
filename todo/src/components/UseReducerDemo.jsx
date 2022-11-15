@@ -25,19 +25,19 @@ const reducer = (state, action) => {
 };
 
 export function UseReducerDemo() {
-  const [count, setCount] = useReducer(reducer, initialState);
+  const [count, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div>
       <input
         type="text"
         value={count.input}
-        onChange={(e) => setCount({ type: "ADD", value: e.target.value })}
+        onChange={(e) => dispatch({ type: "ADD", value: e.target.value })}
       />
       <h1>count - {count.firstCount}</h1>
       <button
         onClick={() =>
-          setCount({ type: "INCREMENT", value: parseInt(count.input) })
+          dispatch({ type: "INCREMENT", value: parseInt(count.input) })
         }
       >
         increment
@@ -67,3 +67,5 @@ export function UseReducerDemo() {
     </div>
   );
 }
+
+PI;
