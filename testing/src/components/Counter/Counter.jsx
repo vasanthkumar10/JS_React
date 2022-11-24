@@ -4,10 +4,14 @@ export function Counter() {
   const [count, setCount] = useState(0);
   const [input, setInput] = useState(0);
 
+  const handleCount = () => {
+    setCount((prev) => prev + 1);
+  };
+
   return (
     <div>
       <h1>{count}</h1>
-      <button onClick={() => setCount((prev) => prev + 1)}>increment</button>
+      <button onClick={handleCount}>increment</button>
 
       <input
         type="number"
